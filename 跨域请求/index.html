@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax跨域数据获取</title>
+</head>
+<body>
+<ul>
+    <li><span>名称：</span><span class="name"></span></li>
+    <li><span>地址：</span><span class="address"></span></li>
+    <li><span>联系人：</span><span class="contact"></span></li>
+    <li><span>手机：</span><span class="phone"></span></li>
+    <li><span>主营：</span><span class="scope"></span></li>
+</ul>
+</body>
+<script src="../jquery-3.3.1.min.js"></script>
+<script>
+    // jquery ajax
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://172.16.16.68:85/index.php?g=client&m=Details&a=consumer_recommend&id=42",
+            // dataType:"jsonp",
+            success: function (str) {
+                console.log("SUCCESS!");
+                var res = JSON.parse(str);
+                if (res.code == 0) {
+                    var info = res.data.info;
+                    $(".name").html(info.restaurant_name);
+                    $(".address").html(info.restaurant_addr);
+                    $(".contact").html(info.restaurant_contact);
+                    $(".phone").html(info.restaurant_phone);
+                    $(".scope").html(info.business_scope);
+                } else {
+                    console.log("FAILED!");
+                }
+            },
+            error: function () {
+                console.log("FAILED!");
+            }
+        });
+    });
+</script>
+</html>
