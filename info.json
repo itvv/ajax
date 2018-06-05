@@ -1,0 +1,19 @@
+{
+  "code": 0,
+  "data": {
+    "info": {
+      "id": "43",
+      "restaurant_name": "好美滋甜品店",
+      "restaurant_contact": "王德",
+      "restaurant_phone": "15225310009",
+      "restaurant_addr": "北京市怀柔区九渡河镇怀柔区商业街21号（近九九佳面馆）",
+      "restaurant_profile": "主打各式面包，小点心。",
+      "business_scope": "蛋挞 香妃蛋糕 小点心 老婆饼 奶香棒 小面包 巧克力蛋糕 巧克力面包 手撕包 手撕面包 燕麦奶茶 牛奶棒 肉松芝士 菠萝包 金枪鱼三明治饼干代金券切片面包各种面包蛋糕大面包小糕点抹茶蛋糕提货卡柠檬茶椰丝球椰香提子樱桃奶酪玛卡龙玫瑰切片肉松卷芒果布丁蓝莓酸奶鲜奶杯",
+      "good_reputation": "111",
+      "poor_reputation": "20",
+      "add_time": "1526374790",
+      "cover": "/data/upload/20180515/5afaa14157af6.jpg",
+      "is_slide": "1"
+    }
+  }
+}

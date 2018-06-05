@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax数据获取</title>
+</head>
+<body>
+<ul>
+    <li><span>名称：</span><span class="name"></span></li>
+    <li><span>地址：</span><span class="address"></span></li>
+    <li><span>联系人：</span><span class="contact"></span></li>
+    <li><span>手机：</span><span class="phone"></span></li>
+    <li><span>主营：</span><span class="scope"></span></li>
+</ul>
+</body>
+<!--引入封装的ajax-->
+<!--<script src="ajax.js"></script>-->
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    // javascript  ajax
+    // window.onload = function () {
+    /*var name = document.getElementsByClassName("name")[0],
+        address = document.getElementsByClassName("address")[0],
+        contact = document.getElementsByClassName("contact")[0],
+        phone = document.getElementsByClassName("phone")[0],
+        scope = document.getElementsByClassName("scope")[0];
+    if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
+    }
+    else {
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("GET", "info.json", true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log("SUCCESS!");
+                var res = eval("(" + xhr.response + ")"); //string=>object
+                if (res.code == 0) {
+                    var info = res.data.info;
+                    name.innerHTML = info.restaurant_name;
+                    address.innerHTML = info.restaurant_addr;
+                    contact.innerHTML = info.restaurant_contact;
+                    phone.innerHTML = info.restaurant_phone;
+                    scope.innerHTML = info.business_scope;
+                } else {
+                    console.log("FAILED!");
+                }
+            } else {
+                console.log("FAILED!");
+            }
+        }
+    }*/
+
+    //调用封装的ajax
+    /*var name = document.getElementsByClassName("name")[0],
+        address = document.getElementsByClassName("addr")[0],
+        contact = document.getElementsByClassName("contact")[0],
+        phone = document.getElementsByClassName("phone")[0],
+        scope = document.getElementsByClassName("scope")[0];
+    ajax('info.json', function (str) {
+        var res = eval("(" + str + ")"); //string=>object
+        if (res.code == 0) {
+            var info = res.data.info;
+            name.innerHTML = info.restaurant_name;
+            address.innerHTML = info.restaurant_addr;
+            contact.innerHTML = info.restaurant_contact;
+            phone.innerHTML = info.restaurant_phone;
+            scope.innerHTML = info.business_scope;
+        } else {
+            console.log("FAILED!");
+        }
+    });*/
+    // };
+    // jquery ajax
+    $(document).ready(function () {
+        // get方法
+        /*$.get('info.json', '', function (res) {
+            console.log("SUCCESS!");
+            if (res.code == 0) {
+                var info = res.data.info;
+                $(".name").html(info.restaurant_name);
+                $(".address").html(info.restaurant_addr);
+                $(".contact").html(info.restaurant_contact);
+                $(".phone").html(info.restaurant_phone);
+                $(".scope").html(info.business_scope);
+            } else {
+                console.log("FAILED!");
+            }
+        });*/
+        $.ajax({
+            type: "GET",
+            url: 'info.json',
+            data: "",
+            success: function (res) {
+                console.log("SUCCESS!");
+                if (res.code == 0) {
+                    var info = res.data.info;
+                    $(".name").html(info.restaurant_name);
+                    $(".address").html(info.restaurant_addr);
+                    $(".contact").html(info.restaurant_contact);
+                    $(".phone").html(info.restaurant_phone);
+                    $(".scope").html(info.business_scope);
+                } else {
+                    console.log("FAILED!");
+                }
+            },
+            error: function () {
+                console.log("FAILED!");
+            }
+        });
+    });
+</script>
+</html>
